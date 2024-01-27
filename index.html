@@ -222,7 +222,7 @@
 
 
             <!-- /.col-md-6 -->
-            <div class="col-lg-6">
+            <div class="col-lg-5">
                 <div class="card card-warning">
                     <div class="card-header">
                         <h5 class="m-0">答え候補</h5>
@@ -329,6 +329,22 @@
             <!-- /.col-md-6 -->
         </div>
         <!-- /.row -->
+
+        <div>
+            <div class="content">
+                <div class="container-fluid" style="padding: 10px;">
+                    <div class="row">
+
+                        <div class="col-lg-5">
+                            <button type="button" id="clear" class="btn btn-block btn-light btn-lg">クリア</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
     </div><!-- /.container-fluid -->
 
 
@@ -365,7 +381,10 @@
             table = $("#example2").DataTable({
                 paging: false,
                 // searching: false,
-                info: false
+                info: false,
+                "language": {
+                    "zeroRecords": "該当パターンが存在しません。"
+                }
             });
             $('#example2_filter').hide();
 
@@ -448,6 +467,27 @@
                 table.column(3).search('花').draw();
             }
         });
+
+        $('#clear').click(function () {
+            //$("input[name='options1']").attr("checked", false);
+            
+            // $("input[name='options1']").val(0);
+            // $("input[name='options2']").val(0);
+            // $("input[name='options3']").val(0);
+            // $("input[name='options4']").val(0);
+
+            $(".active").removeClass("active");
+
+            $($("#option_a1_0").parent(0)).addClass("active");
+            $($("#option_a2_0").parent(0)).addClass("active");
+            $($("#option_a3_0").parent(0)).addClass("active");
+            $($("#option_a4_0").parent(0)).addClass("active");
+
+            table.column(0).search('').draw();
+            table.column(1).search('').draw();
+            table.column(2).search('').draw();
+            table.column(3).search('').draw();
+        })
 
     </script>
 
