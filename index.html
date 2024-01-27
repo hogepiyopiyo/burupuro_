@@ -471,17 +471,17 @@
         $('#clear').click(function () {
             //$("input[name='options1']").attr("checked", false);
             
-            // $("input[name='options1']").val(0);
-            // $("input[name='options2']").val(0);
-            // $("input[name='options3']").val(0);
-            // $("input[name='options4']").val(0);
-
             $(".active").removeClass("active");
 
             $($("#option_a1_0").parent(0)).addClass("active");
             $($("#option_a2_0").parent(0)).addClass("active");
             $($("#option_a3_0").parent(0)).addClass("active");
             $($("#option_a4_0").parent(0)).addClass("active");
+
+            $("input[name='options1']:eq(0)").prop('checked', true);
+            $("input[name='options2']:eq(0)").prop('checked', true);
+            $("input[name='options3']:eq(0)").prop('checked', true);
+            $("input[name='options4']:eq(0)").prop('checked', true);
 
             table.column(0).search('').draw();
             table.column(1).search('').draw();
